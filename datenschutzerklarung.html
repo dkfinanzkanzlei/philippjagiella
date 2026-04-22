@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung – Philipp Jagiella</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #1a3a6b;
+      --blue-bright: #2563eb;
+      --dark:        #0d1b2a;
+      --white:       #ffffff;
+      --gray-50:     #f8fafc;
+      --gray-100:    #f1f5f9;
+      --gray-200:    #e2e8f0;
+      --gray-400:    #94a3b8;
+      --gray-600:    #475569;
+      --radius:      12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: var(--blue-bright); }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -.3px;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--blue-bright);
+      transition: gap .2s;
+    }
+    .nav-back:hover { gap: 10px; text-decoration: none; }
+    .nav-back svg {
+      width: 16px; height: 16px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1a3a6b 100%);
+      padding: 56px 0 48px;
+      color: var(--white);
+    }
+
+    .page-hero .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -.4px;
+      margin-bottom: 8px;
+    }
+
+    .page-hero p { font-size: .95rem; color: rgba(255,255,255,.65); }
+
+    /* TOC */
+    .toc-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .toc {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 40px 0 0;
+    }
+
+    .toc h2 {
+      font-size: .9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--gray-400);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc li { font-size: .9rem; }
+    .toc a { color: var(--blue-bright); font-weight: 500; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* CONTENT */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* Section blocks */
+    .ds-section {
+      margin-bottom: 56px;
+      scroll-margin-top: 88px;
+    }
+
+    .ds-section > h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--dark);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gray-100);
+      margin-bottom: 24px;
+    }
+
+    .ds-subsection {
+      margin-bottom: 28px;
+    }
+
+    .ds-subsection h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .ds-section p,
+    .ds-subsection p {
+      font-size: .93rem;
+      color: var(--gray-600);
+      line-height: 1.82;
+      margin-bottom: 10px;
+    }
+
+    .ds-section p:last-child,
+    .ds-subsection p:last-child { margin-bottom: 0; }
+
+    /* Bullet list */
+    .ds-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .ds-list li {
+      font-size: .93rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .ds-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--blue-bright);
+      font-weight: 600;
+    }
+
+    /* Rights list (numbered) */
+    .rights-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .rights-list li {
+      font-size: .93rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+      padding: 10px 16px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      border-left: 3px solid var(--blue-bright);
+    }
+
+    /* Warning box (Widerspruchsrecht) */
+    .warning-box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid #f59e0b;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-size: .9rem;
+      color: #78350f;
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+
+    .warning-box strong {
+      display: block;
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 10px;
+      color: #92400e;
+    }
+
+    /* Info box */
+    .info-box {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--blue-bright);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      font-size: .9rem;
+      color: var(--gray-600);
+      line-height: 1.78;
+      margin-top: 10px;
+    }
+
+    /* Provider badge */
+    .provider-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #dbeafe;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+
+    /* Copyright notice */
+    .copyright-notice {
+      margin-top: 48px;
+      padding: 16px 20px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      font-size: .8rem;
+      color: var(--gray-400);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.5);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: .82rem;
+    }
+
+    .footer a { color: rgba(255,255,255,.6); }
+    .footer a:hover { color: #60a5fa; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .toc ol { gap: 8px; }
+      .warning-box { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Philipp Jagiella</a>
+      <a href="/" class="nav-back">
+        <svg viewBox="0 0 16 16"><polyline points="10 12 6 8 10 4"/></svg>
+        Zurück zur Startseite
+      </a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>Datenschutzerklärung</h1>
+      <p>Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO</p>
+    </div>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-wrap">
+    <div class="toc">
+      <h2>Inhaltsverzeichnis</h2>
+      <ol>
+        <li><a href="#s1">Einleitung und Kontaktdaten des Verantwortlichen</a></li>
+        <li><a href="#s2">Datenerfassung beim Besuch unserer Website</a></li>
+        <li><a href="#s3">Hosting &amp; Content-Delivery-Network</a></li>
+        <li><a href="#s4">Kontaktaufnahme</a></li>
+        <li><a href="#s5">Seitenfunktionalitäten</a></li>
+        <li><a href="#s6">Tools und Sonstiges</a></li>
+        <li><a href="#s7">Rechte des Betroffenen</a></li>
+        <li><a href="#s8">Dauer der Speicherung personenbezogener Daten</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- 1 -->
+    <div class="ds-section" id="s1">
+      <h2>1) Einleitung und Kontaktdaten des Verantwortlichen</h2>
+
+      <div class="ds-subsection">
+        <h3>1.1 Allgemeines</h3>
+        <p>
+          Wir freuen uns, dass du unsere Website besuchst und bedanken uns für dein Interesse.
+          Im Folgenden informieren wir dich über den Umgang mit deinen personenbezogenen Daten bei der Nutzung unserer Website.
+          Personenbezogene Daten sind hierbei alle Daten, mit denen du persönlich identifiziert werden kannst.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>1.2 Verantwortlicher</h3>
+        <p>
+          Verantwortlicher für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+        </p>
+        <div class="info-box">
+          <strong style="color:#1e293b;font-size:.95rem">Philipp Jagiella</strong><br>
+          Eilendorfer Str. 215<br>
+          52078 Aachen, Deutschland<br><br>
+          Tel.: <a href="tel:+4917623546722">+49 176 23546722</a><br>
+          E-Mail: <a href="mailto:info@philippjagiella.de">info@philippjagiella.de</a>
+        </div>
+        <p style="margin-top:12px">
+          Der für die Verarbeitung von personenbezogenen Daten Verantwortliche ist diejenige natürliche oder juristische Person,
+          die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="ds-section" id="s2">
+      <h2>2) Datenerfassung beim Besuch unserer Website</h2>
+
+      <div class="ds-subsection">
+        <h3>2.1 Server-Logfiles</h3>
+        <p>
+          Bei der bloß informatorischen Nutzung unserer Website, also wenn du dich nicht registrierst oder uns anderweitig
+          Informationen übermittelst, erheben wir nur solche Daten, die dein Browser an den Seitenserver übermittelt
+          (sog. „Server-Logfiles"). Wenn du unsere Website aufrufst, erheben wir die folgenden Daten, die für uns
+          technisch erforderlich sind, um dir die Website anzuzeigen:
+        </p>
+        <ul class="ds-list">
+          <li>Unsere besuchte Website</li>
+          <li>Datum und Uhrzeit zum Zeitpunkt des Zugriffs</li>
+          <li>Menge der gesendeten Daten in Byte</li>
+          <li>Quelle/Verweis, von welchem du auf die Seite gelangtest</li>
+          <li>Verwendeter Browser</li>
+          <li>Verwendetes Betriebssystem</li>
+          <li>Verwendete IP-Adresse (ggf. in anonymisierter Form)</li>
+        </ul>
+        <p>
+          Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der
+          Verbesserung der Stabilität und Funktionalität unserer Website. Eine Weitergabe oder anderweitige Verwendung
+          der Daten findet nicht statt. Wir behalten uns allerdings vor, die Server-Logfiles nachträglich zu überprüfen,
+          sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>2.2 SSL- / TLS-Verschlüsselung</h3>
+        <p>
+          Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten und anderer
+          vertraulicher Inhalte (z.B. Bestellungen oder Anfragen an uns) eine SSL- bzw. TLS-Verschlüsselung. Du kannst
+          eine verschlüsselte Verbindung an der Zeichenfolge „https://" und dem Schloss-Symbol in deiner Browserzeile erkennen.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="ds-section" id="s3">
+      <h2>3) Hosting &amp; Content-Delivery-Network</h2>
+
+      <div class="ds-subsection">
+        <h3>3.1 Hosting</h3>
+        <p>
+          Für das Hosting unserer Website und die Darstellung der Seiteninhalte nutzen wir einen Anbieter, der seine
+          Leistungen selbst oder durch ausgewählte Sub-Unternehmer ausschließlich auf Servern innerhalb der Europäischen
+          Union erbringt. Sämtliche auf unserer Website erhobenen Daten werden auf diesen Servern verarbeitet.
+        </p>
+        <p>
+          Wir haben mit dem Anbieter einen Auftragsverarbeitungsvertrag geschlossen, der den Schutz der Daten unserer
+          Seitenbesucher sicherstellt und eine unberechtigte Weitergabe an Dritte untersagt.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>3.2 Google Cloud CDN</h3>
+        <div class="provider-badge">Anbieter</div>
+        <p>
+          Wir nutzen ein Content Delivery Network des folgenden Anbieters:<br>
+          <strong>Google Ireland Limited</strong>, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Irland
+        </p>
+        <p>
+          Dieser Dienst ermöglicht uns, große Mediendateien wie Grafiken, Seiteninhalte oder Skripte über ein Netz
+          regional verteilter Server schneller auszuliefern. Die Verarbeitung erfolgt zur Wahrung unseres berechtigten
+          Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website gem. Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+        <p>Daten können zudem übertragen werden an: <strong>Google LLC, USA</strong>.</p>
+        <p>
+          Wir haben mit dem Anbieter einen Auftragsverarbeitungsvertrag geschlossen, der den Schutz der Daten unserer
+          Seitenbesucher sicherstellt und eine unberechtigte Weitergabe an Dritte untersagt. Für Datenübermittlungen
+          in die USA hat sich der Anbieter dem EU-US-Datenschutzrahmen (EU-US Data Privacy Framework) angeschlossen,
+          das auf Basis eines Angemessenheitsbeschlusses der Europäischen Kommission die Einhaltung des europäischen
+          Datenschutzniveaus sicherstellt.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="ds-section" id="s4">
+      <h2>4) Kontaktaufnahme</h2>
+
+      <div class="ds-subsection">
+        <h3>4.1 Calendly</h3>
+        <div class="provider-badge">Anbieter</div>
+        <p>
+          Für die Bereitstellung einer Online-Terminbuchungsfunktion nutzen wir die Dienste des folgenden Anbieters:<br>
+          <strong>Calendly, LLC</strong>, BB&amp;T Tower, 271 17th St NW, Atlanta, GA 30363, USA.
+        </p>
+        <p>
+          Zum Zwecke der Terminvergabe werden gemäß Art. 6 Abs. 1 lit. b DSGVO Vor- und Zuname sowie Mailadresse
+          (und ggf. die Telefonnummer, sofern ein telefonischer Termin gewünscht ist) erhoben und gemäß Art. 6 Abs. 1
+          lit. f DSGVO auf Basis unseres berechtigten Interesses an einem effektiven Kundenmanagement und einer
+          effizienten Terminverwaltung an den Anbieter übermittelt und dort für die Terminorganisation gespeichert.
+        </p>
+        <p>
+          Nach Abhaltung des Termins bzw. nach Ablauf des vereinbarten Terminzeitraums werden deine Daten vom
+          Anbieter gelöscht. Wir haben mit dem Anbieter einen Auftragsverarbeitungsvertrag geschlossen, der den Schutz
+          der Daten unserer Seitenbesucher sicherstellt und eine unberechtigte Weitergabe an Dritte untersagt.
+        </p>
+        <p>
+          Für Datenübermittlungen in die USA hat sich der Anbieter dem EU-US-Datenschutzrahmen (EU-US Data Privacy
+          Framework) angeschlossen, das auf Basis eines Angemessenheitsbeschlusses der Europäischen Kommission die
+          Einhaltung des europäischen Datenschutzniveaus sicherstellt.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>4.2 WhatsApp Business</h3>
+        <div class="provider-badge">Anbieter</div>
+        <p>
+          Wir bieten dir die Möglichkeit, mit uns über den Nachrichtendienst WhatsApp der
+          <strong>WhatsApp Ireland Limited</strong>, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland,
+          in Kontakt zu treten. Hierfür verwenden wir die sog. „Business-Version" von WhatsApp.
+        </p>
+        <p>
+          Sofern du uns anlässlich eines konkreten Geschäfts per WhatsApp kontaktierst, speichern und verwenden wir
+          die von dir bei WhatsApp genutzte Mobilfunknummer sowie – falls bereitgestellt – deinen Vor- und Nachnamen
+          gemäß Art. 6 Abs. 1 lit. b DSGVO zur Bearbeitung und Beantwortung deines Anliegens.
+        </p>
+        <p>
+          Nutzt du unseren WhatsApp-Kontakt für allgemeine Anfragen, speichern und verwenden wir deine Mobilfunknummer
+          sowie – falls bereitgestellt – deinen Vor- und Nachnamen gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres
+          berechtigten Interesses an der effizienten und zeitnahen Bereitstellung der gewünschten Informationen.
+          Deine Daten werden stets nur zur Beantwortung deines Anliegens per WhatsApp verwendet. Eine Weitergabe an
+          Dritte findet nicht statt.
+        </p>
+        <p>
+          Bitte beachte, dass WhatsApp Business Zugriff auf das Adressbuch des von uns hierfür verwendeten mobilen
+          Endgeräts erhält und im Adressbuch gespeicherte Telefonnummern automatisch an einen Server des Mutterkonzerns
+          Meta Platforms Inc. in den USA überträgt. Für den Betrieb unseres WhatsApp-Business-Kontos verwenden wir ein
+          mobiles Endgerät, in dessen Adressbuch ausschließlich die WhatsApp-Kontaktdaten solcher Nutzer gespeichert
+          werden, die mit uns per WhatsApp auch in Kontakt getreten sind.
+        </p>
+        <p>
+          Zweck und Umfang der Datenerhebung sowie deine Rechte und Einstellungsmöglichkeiten entnimmst du bitte den
+          Datenschutzhinweisen von WhatsApp:
+          <a href="https://www.whatsapp.com/legal/?eea=1#privacy-policy" target="_blank" rel="noopener">
+            whatsapp.com/legal – Datenschutzrichtlinie
+          </a>
+        </p>
+        <p>
+          Im Rahmen der oben genannten Verarbeitungen kann es zu Datenübertragungen an Server von Meta Platforms Inc.
+          in den USA kommen. Für Datenübermittlungen in die USA hat sich der Anbieter dem EU-US-Datenschutzrahmen
+          (EU-US Data Privacy Framework) angeschlossen, das auf Basis eines Angemessenheitsbeschlusses der Europäischen
+          Kommission die Einhaltung des europäischen Datenschutzniveaus sicherstellt.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>4.3 Kontaktformular &amp; E-Mail</h3>
+        <p>
+          Im Rahmen der Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) werden personenbezogene Daten
+          erhoben. Welche Daten im Falle der Nutzung eines Kontaktformulars erhoben werden, ist aus dem jeweiligen
+          Kontaktformular ersichtlich. Diese Daten werden ausschließlich zum Zweck der Beantwortung deines Anliegens
+          bzw. für die Kontaktaufnahme und die damit verbundene technische Administration gespeichert und verwendet.
+        </p>
+        <p>
+          Rechtsgrundlage für die Verarbeitung dieser Daten ist unser berechtigtes Interesse an der Beantwortung deines
+          Anliegens gemäß Art. 6 Abs. 1 lit. f DSGVO. Zielt deine Kontaktierung auf den Abschluss eines Vertrages ab,
+          so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 lit. b DSGVO. Deine Daten werden nach
+          abschließender Bearbeitung deiner Anfrage gelöscht. Dies ist der Fall, wenn sich aus den Umständen entnehmen
+          lässt, dass der betroffene Sachverhalt abschließend geklärt ist und sofern keine gesetzlichen
+          Aufbewahrungspflichten entgegenstehen.
+        </p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="ds-section" id="s5">
+      <h2>5) Seitenfunktionalitäten</h2>
+
+      <div class="ds-subsection">
+        <h3>5.1 Instagram-Plugins</h3>
+        <div class="provider-badge">Anbieter</div>
+        <p>
+          Auf unserer Website werden Plugins des sozialen Netzwerkes des folgenden Anbieters verwendet:<br>
+          <strong>Meta Platforms Ireland Ltd.</strong>, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.
+        </p>
+        <p>
+          Diese Plugins ermöglichen direkte Interaktionen mit Inhalten auf dem sozialen Netzwerk. Um den Schutz deiner
+          Daten beim Besuch unserer Website zu erhöhen, sind die Plugins zunächst deaktiviert mittels sogenannter
+          „2-Klick"- oder „Shariff"-Lösung in die Seite eingebunden. Diese Einbindung gewährleistet, dass beim Aufruf
+          einer Seite unseres Webauftritts noch keine Verbindung mit den Servern des Anbieters hergestellt wird.
+        </p>
+        <p>
+          Erst wenn du die Plugins aktivierst und damit gemäß Art. 6 Abs. 1 lit. a DSGVO deine Einwilligung in die
+          Datenübermittlung erteilst, stellt dein Browser eine direkte Verbindung zu den Servern des Anbieters her.
+          Du kannst deine Einwilligung jederzeit widerrufen, indem du das aktivierte Plugin durch erneutes Anklicken
+          wieder deaktivierst. Der Widerruf hat jedoch keinen Einfluss auf die Daten, die bereits an den Anbieter
+          übertragen wurden.
+        </p>
+        <p>
+          Daten können zudem übertragen werden an: <strong>Meta Platforms Inc., USA</strong>. Wir haben mit dem
+          Anbieter einen Auftragsverarbeitungsvertrag geschlossen. Für Datenübermittlungen in die USA hat sich der
+          Anbieter dem EU-US-Datenschutzrahmen (EU-US Data Privacy Framework) angeschlossen.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>5.2 LinkedIn-Plugins</h3>
+        <div class="provider-badge">Anbieter</div>
+        <p>
+          Auf unserer Website werden Plugins des sozialen Netzwerkes des folgenden Anbieters verwendet:<br>
+          <strong>LinkedIn Ireland Unlimited Company</strong>, Wilton Place, Dublin 2, Irland.
+        </p>
+        <p>
+          Diese Plugins ermöglichen direkte Interaktionen mit Inhalten auf dem sozialen Netzwerk. Um den Schutz deiner
+          Daten beim Besuch unserer Website zu erhöhen, sind die Plugins zunächst deaktiviert mittels sogenannter
+          „2-Klick"- oder „Shariff"-Lösung in die Seite eingebunden.
+        </p>
+        <p>
+          Erst wenn du die Plugins aktivierst und damit gemäß Art. 6 Abs. 1 lit. a DSGVO deine Einwilligung erteilst,
+          stellt dein Browser eine direkte Verbindung zu den Servern des Anbieters her. Du kannst deine Einwilligung
+          jederzeit widerrufen, indem du das aktivierte Plugin durch erneutes Anklicken wieder deaktivierst.
+        </p>
+        <p>
+          Daten können zudem übertragen werden an: <strong>LinkedIn Inc., USA</strong>. Wir haben mit dem Anbieter
+          einen Auftragsverarbeitungsvertrag geschlossen. Für die Übermittlung von Daten in die USA beruft sich der
+          Anbieter auf Standardvertragsklauseln der Europäischen Kommission, welche die Einhaltung des europäischen
+          Datenschutzniveaus sicherstellen sollen.
+        </p>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>5.3 YouTube</h3>
+        <div class="provider-badge">Anbieter</div>
+        <p>
+          Diese Website nutzt Plugins zur Anzeige und Wiedergabe von Videos des folgenden Anbieters:<br>
+          <strong>Google Ireland Limited</strong>, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Irland.<br>
+          Daten können zudem übermittelt werden an: <strong>Google LLC., USA</strong>.
+        </p>
+        <p>
+          Wenn du eine Seite unseres Internetauftritts aufrufst, die ein solches Plugin enthält, stellt dein Browser
+          eine direkte Verbindung zu den Servern des Anbieters her, um das Plugin zu laden. Hierbei werden bestimmte
+          Informationen, einschließlich deiner IP-Adresse, an den Anbieter übermittelt. Wird die Wiedergabe
+          eingebetteter Videos gestartet, setzt der Anbieter zudem Cookies ein, um Informationen über das
+          Nutzerverhalten zu sammeln, Wiedergabestatistiken zu erstellen und missbräuchliches Verhalten zu unterbinden.
+        </p>
+        <p>
+          Alle vorgenannten Verarbeitungen erfolgen nur, wenn du uns hierzu deine ausdrückliche Einwilligung gem.
+          Art. 6 Abs. 1 lit. a DSGVO erteilt hast. Die erteilte Einwilligung kannst du jederzeit mit Wirkung für die
+          Zukunft widerrufen, indem du diesen Dienst über das auf der Webseite bereitgestellte „Cookie-Consent-Tool"
+          deaktivierst. Für Datenübermittlungen in die USA hat sich der Anbieter dem EU-US-Datenschutzrahmen
+          (EU-US Data Privacy Framework) angeschlossen.
+        </p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="ds-section" id="s6">
+      <h2>6) Tools und Sonstiges</h2>
+
+      <div class="ds-subsection">
+        <h3>Cookie-Consent-Tool</h3>
+        <p>
+          Diese Website nutzt zur Einholung wirksamer Nutzereinwilligungen für einwilligungspflichtige Cookies und
+          cookie-basierte Anwendungen ein sog. „Cookie-Consent-Tool". Das Tool wird dir bei Seitenaufruf in Form einer
+          interaktiven Benutzeroberfläche angezeigt, auf welcher du per Häkchensetzung Einwilligungen für bestimmte
+          Cookies und/oder cookie-basierte Anwendungen erteilen kannst. Hierbei werden durch den Einsatz des Tools
+          alle einwilligungspflichtigen Cookies/Dienste nur dann geladen, wenn du entsprechende Einwilligungen per
+          Häkchensetzung erteilst.
+        </p>
+        <p>
+          Das Tool setzt technisch notwendige Cookies, um deine Cookie-Präferenzen zu speichern. Personenbezogene
+          Nutzerdaten werden hierbei grundsätzlich nicht verarbeitet. Kommt es im Einzelfall zur Verarbeitung
+          personenbezogener Daten (wie etwa der IP-Adresse), erfolgt diese gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis
+          unseres berechtigten Interesses an einem rechtskonformen, nutzerspezifischen und nutzerfreundlichen
+          Einwilligungsmanagement für Cookies.
+        </p>
+        <p>
+          Weitere Rechtsgrundlage für die Verarbeitung ist ferner Art. 6 Abs. 1 lit. c DSGVO. Wir unterliegen als
+          Verantwortliche der rechtlichen Verpflichtung, den Einsatz technisch nicht notwendiger Cookies von der
+          jeweiligen Nutzereinwilligung abhängig zu machen. Soweit erforderlich, haben wir mit dem Anbieter einen
+          Auftragsverarbeitungsvertrag geschlossen.
+        </p>
+        <p>
+          Weitere Informationen zum Betreiber und den Einstellungsmöglichkeiten des Cookie-Consent-Tools findest du
+          direkt in der entsprechenden Benutzeroberfläche auf unserer Website.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="ds-section" id="s7">
+      <h2>7) Rechte des Betroffenen</h2>
+
+      <div class="ds-subsection">
+        <h3>7.1 Betroffenenrechte</h3>
+        <p>
+          Das geltende Datenschutzrecht gewährt dir gegenüber uns als Verantwortlichen hinsichtlich der Verarbeitung
+          deiner personenbezogenen Daten die nachstehenden Betroffenenrechte (Auskunfts- und Interventionsrechte):
+        </p>
+        <ul class="rights-list">
+          <li>Auskunftsrecht gemäß <strong>Art. 15 DSGVO</strong></li>
+          <li>Recht auf Berichtigung gemäß <strong>Art. 16 DSGVO</strong></li>
+          <li>Recht auf Löschung gemäß <strong>Art. 17 DSGVO</strong></li>
+          <li>Recht auf Einschränkung der Verarbeitung gemäß <strong>Art. 18 DSGVO</strong></li>
+          <li>Recht auf Unterrichtung gemäß <strong>Art. 19 DSGVO</strong></li>
+          <li>Recht auf Datenübertragbarkeit gemäß <strong>Art. 20 DSGVO</strong></li>
+          <li>Recht auf Widerruf erteilter Einwilligungen gemäß <strong>Art. 7 Abs. 3 DSGVO</strong></li>
+          <li>Recht auf Beschwerde gemäß <strong>Art. 77 DSGVO</strong></li>
+        </ul>
+      </div>
+
+      <div class="ds-subsection">
+        <h3>7.2 Widerspruchsrecht</h3>
+        <div class="warning-box">
+          <strong>Wichtiger Hinweis – Widerspruchsrecht</strong>
+          Wenn wir im Rahmen einer Interessenabwägung deine personenbezogenen Daten aufgrund unseres überwiegenden
+          berechtigten Interesses verarbeiten, hast du das jederzeitige Recht, aus Gründen, die sich aus deiner
+          besonderen Situation ergeben, gegen diese Verarbeitung Widerspruch mit Wirkung für die Zukunft einzulegen.
+          <br><br>
+          Machst du von deinem Widerspruchsrecht Gebrauch, beenden wir die Verarbeitung der betroffenen Daten.
+          Eine Weiterverarbeitung bleibt aber vorbehalten, wenn wir zwingende schutzwürdige Gründe für die Verarbeitung
+          nachweisen können, die deine Interessen, Grundrechte und Grundfreiheiten überwiegen, oder wenn die
+          Verarbeitung der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen dient.
+          <br><br>
+          Werden deine personenbezogenen Daten von uns verarbeitet, um Direktwerbung zu betreiben, hast du das Recht,
+          jederzeit Widerspruch gegen die Verarbeitung dir betreffender personenbezogener Daten zum Zwecke derartiger
+          Werbung einzulegen. Machst du von deinem Widerspruchsrecht Gebrauch, beenden wir die Verarbeitung der
+          betroffenen Daten zu Direktwerbezwecken.
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="ds-section" id="s8">
+      <h2>8) Dauer der Speicherung personenbezogener Daten</h2>
+
+      <p>
+        Die Dauer der Speicherung von personenbezogenen Daten bemisst sich anhand der jeweiligen Rechtsgrundlage,
+        am Verarbeitungszweck und – sofern einschlägig – zusätzlich anhand der jeweiligen gesetzlichen
+        Aufbewahrungsfrist (z.B. handels- und steuerrechtliche Aufbewahrungsfristen).
+      </p>
+      <p>
+        Bei der Verarbeitung von personenbezogenen Daten auf Grundlage einer ausdrücklichen Einwilligung gemäß
+        Art. 6 Abs. 1 lit. a DSGVO werden die betroffenen Daten so lange gespeichert, bis du deine Einwilligung widerrufst.
+      </p>
+      <p>
+        Existieren gesetzliche Aufbewahrungsfristen für Daten, die im Rahmen rechtsgeschäftlicher bzw.
+        rechtsgeschäftsähnlicher Verpflichtungen auf der Grundlage von Art. 6 Abs. 1 lit. b DSGVO verarbeitet
+        werden, werden diese Daten nach Ablauf der Aufbewahrungsfristen routinemäßig gelöscht, sofern sie nicht mehr
+        zur Vertragserfüllung oder Vertragsanbahnung erforderlich sind und/oder unsererseits kein berechtigtes
+        Interesse an der Weiterspeicherung fortbesteht.
+      </p>
+      <p>
+        Bei der Verarbeitung von personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO werden
+        diese Daten so lange gespeichert, bis du dein Widerspruchsrecht nach Art. 21 Abs. 1 DSGVO ausübst,
+        es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die deine
+        Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung
+        oder Verteidigung von Rechtsansprüchen.
+      </p>
+      <p>
+        Bei der Verarbeitung von personenbezogenen Daten zum Zwecke der Direktwerbung auf Grundlage von
+        Art. 6 Abs. 1 lit. f DSGVO werden diese Daten so lange gespeichert, bis du dein Widerspruchsrecht nach
+        Art. 21 Abs. 2 DSGVO ausübst.
+      </p>
+      <p>
+        Sofern sich aus den sonstigen Informationen dieser Erklärung über spezifische Verarbeitungssituationen
+        nichts anderes ergibt, werden gespeicherte personenbezogene Daten im Übrigen dann gelöscht, wenn sie für
+        die Zwecke, für die sie erhoben oder auf sonstige Weise verarbeitet wurden, nicht mehr notwendig sind.
+      </p>
+
+      <div class="copyright-notice">
+        <strong>Copyright-Hinweis:</strong> Diese Datenschutzerklärung wurde von den Fachanwälten der
+        IT-Recht Kanzlei erstellt und ist urheberrechtlich geschützt
+        (<a href="https://www.it-recht-kanzlei.de" target="_blank" rel="noopener">www.it-recht-kanzlei.de</a>).
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      &copy; 2025 Philipp Jagiella &nbsp;·&nbsp;
+      <a href="/impressum.html">Impressum</a> &nbsp;·&nbsp;
+      <a href="/datenschutzerklarung.html">Datenschutzerklärung</a>
+    </p>
+  </footer>
+
+</body>
+</html>
