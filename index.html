@@ -755,14 +755,6 @@
       will-change: transform;
     }
 
-    .logo-ticker-track--rtl {
-      animation: ticker-rtl 28s linear infinite;
-    }
-
-    .logo-ticker-track--ltr {
-      animation: ticker-ltr 28s linear infinite;
-    }
-
     .logo-ticker-track img {
       height: 44px;
       width: auto;
@@ -781,15 +773,6 @@
     .logo-ticker-track img[alt="ARAG"]       { height: 96px; max-width: 96px; }
 
 
-    @keyframes ticker-rtl {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-25%); }
-    }
-
-    @keyframes ticker-ltr {
-      from { transform: translateX(-25%); }
-      to   { transform: translateX(0); }
-    }
 
     @media (max-width: 768px) {
       .process-stack {
@@ -1922,6 +1905,31 @@
 
       window.addEventListener('scroll', updateStack, { passive: true });
       window.addEventListener('resize', () => { setZoneHeight(); updateStack(); });
+    })();
+
+    /* ---- Logo Ticker (JS rAF – kein CSS-Reset, kein Flicker) ---- */
+    (function() {
+      const SPEED = 0.7; // px per frame
+
+      function startTicker(trackEl, direction) {
+        // Wait one frame so scrollWidth is calculated
+        requestAnimationFrame(function() {
+          var setW = trackEl.scrollWidth / 4; // 4 identical logo sets
+          var x = direction === 'ltr' ? -setW : 0;
+
+          function tick() {
+            x += direction === 'ltr' ? SPEED : -SPEED;
+            if (x <= -setW) x += setW;
+            if (x >= 0)     x -= setW;
+            trackEl.style.transform = 'translateX(' + x + 'px)';
+            requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      document.querySelectorAll('.logo-ticker-track--rtl').forEach(function(el) { startTicker(el, 'rtl'); });
+      document.querySelectorAll('.logo-ticker-track--ltr').forEach(function(el) { startTicker(el, 'ltr'); });
     })();
 
   </script>
