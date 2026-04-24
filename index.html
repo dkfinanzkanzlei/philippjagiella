@@ -650,8 +650,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       overflow: hidden;
+      padding: 32px 0;
     }
 
     /* Progress dots */
@@ -733,6 +734,61 @@
     .process-cta {
       text-align: center;
       padding-top: 64px;
+    }
+
+    /* ===========================
+       LOGO TICKER
+    =========================== */
+    .logo-ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      padding: 12px 0;
+    }
+
+    .logo-ticker-track {
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .logo-ticker-track--rtl {
+      animation: ticker-rtl 28s linear infinite;
+    }
+
+    .logo-ticker-track--ltr {
+      animation: ticker-ltr 28s linear infinite;
+    }
+
+    .logo-ticker-track img {
+      height: 44px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* Quadratische Logos brauchen mehr Höhe für gleiche visuelle Wirkung */
+    .logo-ticker-track img[alt="AXA"]        { height: 54px; }
+    .logo-ticker-track img[alt="HDI"]        { height: 54px; }
+    .logo-ticker-track img[alt="Swiss Life"] { height: 56px; }
+
+    /* ARAG: Bild hat viel Whitespace, Logo-Kreis nimmt ~50% ein */
+    .logo-ticker-track img[alt="ARAG"]       { height: 96px; max-width: 96px; }
+
+
+    @keyframes ticker-rtl {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-25%); }
+    }
+
+    @keyframes ticker-ltr {
+      from { transform: translateX(-25%); }
+      to   { transform: translateX(0); }
     }
 
     @media (max-width: 768px) {
@@ -1350,6 +1406,44 @@
     <div class="process-scroll-zone" id="processZone">
       <div class="process-sticky-stage" id="processStickyStage">
 
+        <!-- Logo ticker top (right → left) -->
+        <div class="logo-ticker-wrap">
+          <div class="logo-ticker-track logo-ticker-track--rtl">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+          </div>
+        </div>
+
         <!-- progress dots -->
         <div class="process-dots" id="processDots">
           <span class="process-dot active"></span>
@@ -1393,6 +1487,45 @@
           </div>
 
         </div>
+
+        <!-- Logo ticker bottom (left → right) -->
+        <div class="logo-ticker-wrap">
+          <div class="logo-ticker-track logo-ticker-track--ltr">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+            <img src="Logos/allianz-transparent.png" alt="Allianz">
+            <img src="Logos/axa-transparent.png" alt="AXA">
+            <img src="Logos/barmenia.png" alt="Barmenia">
+            <img src="Logos/hdi-transparent.png" alt="HDI">
+            <img src="Logos/ARAG%20Logo.png" alt="ARAG">
+            <img src="Logos/BAY_Logo+ohne+Claim_BG_hoch.png" alt="Bayerische">
+            <img src="Logos/roland-rechtsschutz.png" alt="Roland Rechtsschutz">
+            <img src="Logos/Swisslife-logo.svg.png" alt="Swiss Life">
+          </div>
+        </div>
+
       </div>
     </div>
 
